@@ -1,9 +1,30 @@
 /* ======================================================
-  ADVANCED PROJECT EXPORTER ULTRA v2 (Perfect Layout)
-  Features: Middle Ellipsis Truncation, Balanced Columns,
-  Dark Scrollbars, Responsive Grid (1-2-4), Full Link Footer.
-======================================================
-*/
+   PROJECT EXPORTER Pro 
+   Version: 3.0
+
+   Features:
+   - Auto Resource Loader
+   - Dynamic UI Injection
+   - Dark Premium UI
+   - Responsive Grid (1-2-4)
+   - Real-Time Progress + Animated Badge
+   - Pause / Resume / Stop Control
+   - Middle Ellipsis Truncation
+   - Multi Format (PNG / JPG / WebP)
+   - Scale Control (0x–16x)
+   - Individual + ZIP Download
+   - Live ZIP Size Indicator
+   - Image Preview Modal
+   - Collapsible Preview Section
+   - Toast Notifications
+   - Dark Scrollbars
+   - Balanced Table Layout
+   - Memory Cleanup (URL Revoke)
+   - Mobile Optimized
+   - Professional Footer Link
+   
+====================================================== */
+
 
 (function () {
 
@@ -135,7 +156,7 @@
         display: none; align-items: center; justify-content: center; z-index: 10001;
         padding: 20px; backdrop-filter: blur(8px);
       }
-      .ep-modal { background: #111; width: 90%; max-width: 900px; border-radius: 12px; border: 1px solid #333; overflow: hidden; }
+      .ep-modal { background: #111; width: 90%; max-width: 1000px; max-height: 90%; border-radius: 12px; border: 1px solid #333; overflow: hidden; }
       .ep-modal-head { padding: 15px 20px; background: #181818; display: flex; justify-content: space-between; border-bottom: 1px solid #222; }
       .ep-modal-body { padding: 20px; text-align: center; background: #0a0a0a; }
       .ep-modal-body img { max-width: 100%; max-height: 70vh; border-radius: 4px; }
