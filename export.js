@@ -11,7 +11,7 @@
    - Pause / Resume / Stop Control
    - Middle Ellipsis Truncation
    - Multi Format (PNG / JPG / WebP)
-   - Scale Control (0x–16x)
+   - Scale Control (2x–16x)
    - Individual + ZIP Download
    - Live ZIP Size Indicator
    - Image Preview Modal
@@ -744,3 +744,4 @@
     console.error('[Project Exporter] Fatal error – isolated from main project.', err);
   }
 })();
+
