@@ -1,200 +1,205 @@
-# 📸 Project Exporter Pro  
+# 📸 Project Exporter Pro
 
 ![Project Exporter Pro Preview](./preview.png)
 
-### Advanced Web Element Export Engine
-> A zero-dependency, plug-and-play JavaScript exporting engine that converts live DOM elements into high-resolution images with analytics, preview system, ZIP packaging, pause/resume control, and a fully injected premium UI.
+### Universal Web Element Export Engine
+> Drop a single `<script>` tag into any HTML project — a fully-featured, premium export UI appears automatically. No extra HTML, no CSS file, no configuration required.
 
 ---
 
-# 📑 Table of Contents
+## 📑 Table of Contents
 
-- [📸 Project Exporter Pro](#-project-exporter-pro)
-- [📑 Table of Contents](#-table-of-contents)
 - [🚀 Overview](#-overview)
 - [✨ Feature Breakdown](#-feature-breakdown)
-- [🔄 Functional Workflow](#-functional-workflow)
-- [🛠 Installation](#-installation)
-    - [Option 1 — Local](#option-1--local)
-    - [Option 2 — CDN (Recommended)](#option-2--cdn-recommended)
+- [📦 Supported Formats](#-supported-formats)
 - [⚙ Configuration Options](#-configuration-options)
+- [🛠 Installation](#-installation)
+- [🔄 How It Works](#-how-it-works)
 - [⚡ Performance Notes](#-performance-notes)
-- [📦 File Structure](#-file-structure)
+- [📂 File Structure](#-file-structure)
 - [👨‍💻 Author](#-author)
 - [⭐ Support](#-support)
 
-
 ---
 
-# 🚀 Overview
+## 🚀 Overview
 
-**Project Exporter Pro** is a self-contained JavaScript export system designed to be injected into any HTML project without modifying the existing structure.
+**Project Exporter Pro** is a self-contained JavaScript export engine designed to be injected into any HTML project without touching existing code.
 
 It automatically:
+- Injects its own full UI (dark premium theme)
+- Loads all required external libraries via CDN
+- Detects target DOM elements by CSS selector
+- Captures them using the **html-to-image** engine (SVG foreignObject — native browser CSS renderer)
+- Generates downloadable files in multiple formats
+- Provides live preview, table listing, and ZIP packaging
 
-- Injects its own UI
-- Injects **premium dark theme**
-- Loads required external libraries
-- Detects target DOM elements
-- Converts them to canvas
-- Generates image blobs
-- Creates **downloadable files**
-- Provides **preview & ZIP** packaging
-
-> No HTML markup is required.
-No CSS file is required.
-Only one JS file.
+> One JS file. Zero setup. Works everywhere.
 
 ---
 
-# ✨ Feature Breakdown
-
-### ⚡ Single File Plug & Play
-- Drop one JS file into any project.
-
+## ✨ Feature Breakdown
 
 ### 🎨 Premium Dark Interface
-- Balanced layout
-- Modern grid
-- Smooth transitions
-- Dark scrollbar styling
-- Professional modal
+Fully injected, Shadow DOM isolated — zero style conflict with your project.
 
 ### 📊 Live Progress System
-- Animated progress bar
-- Percentage badge
-- Real-time count
-- Dynamic ZIP size calculation
+Animated progress bar, percentage badge, and real-time item counter.
 
 ### ⏯ Pause / Resume / Stop
-- Control export process live without reloading page.
+Full process control without reloading the page.
 
-### 👁 Modal Preview
-- Preview any generated image before download.
+### 🔢 Flexible Scale Control
+Number input supporting **0.25× to 32×** with live colour feedback:
+
+| Range | Theme | Meaning |
+|-------|-------|---------|
+| 0.25× – 8× | 🔵 Blue | Safe for everyday use |
+| > 8× – 16× | 🟡 Amber | High memory usage warning |
+| > 16× | 🔴 Red | Extreme — may crash browser |
+
+### 📖 Documentation Popup
+A `📄` icon in the header opens a GitHub-style README viewer that fetches the latest documentation live from GitHub.
+
+### 👁 Image Preview Modal
+Preview any generated image before downloading.
 
 ### 📦 ZIP Packaging
-- Download all exported images as a single `.zip`.
+Download all exported images as a single `.zip` file.
 
-### ✂ Middle Ellipsis Filename Logic
-- Long filenames auto-truncate: 
-- ` VeryLongProjectNameFile....png `
-- Adaptive for mobile and desktop.
+### ✂ Smart Filename Truncation
+Long filenames are automatically truncated with middle ellipsis, adaptive for mobile and desktop.
 
-### 📱 Fully Responsive Layout
-- Everything adjusts accordinf to the device width.
+### 📱 Fully Responsive
+Grid layout adapts: 1 column → 2 → 4 based on screen width.
 
-### 🛑 Main Sections
-
-- Header
-- Input Grid
-- Action Row
-- Progress Bar
-- Preview Panel (Collapsible)
-- Table
-- ZIP Section
-- Footer
-- Modal Viewer (Preview)
----
-
-# 🔄 Functional Workflow
-
-```
-User Input
-    ↓
-DOM Query (Selector)
-    ↓
-Canvas Rendering
-    ↓
-Blob Conversion
-    ↓
-Preview Table Population
-    ↓
-Single Download or ZIP Export
-```
+### 🧹 Memory Cleanup
+All object URLs are revoked on reset to prevent memory leaks.
 
 ---
 
-# 🛠 Installation
+## 📦 Supported Formats
 
-### Option 1 — Local
-1. Download the `export.js`
-2. Place `export.js` to your project folder
-3. Import this before closing `</body>` tag:
+| Format | Description |
+|--------|-------------|
+| **PNG** | Lossless, supports transparency |
+| **JPG** | Compressed, smaller file size |
+| **WebP** | Modern format, best compression |
+| **SVG** | Vector — scalable, text-based |
+| **PDF (RGB)** | Screen-optimised PDF |
+| **PDF (CMYK)** | Print-ready PDF with CMYK colour conversion |
+| **CMYK JPEG** | Print-accurate JPEG with CMYK pixel conversion |
+
+> **CMYK formats** convert each pixel from RGB to CMYK colour space and back — producing colour-accurate output for professional print workflows.
+
+---
+
+## ⚙ Configuration Options
+
+| Field | Description | Default |
+|-------|-------------|---------|
+| Target Selector | CSS selector of elements to export | `.page` |
+| Base Name | Output filename prefix | `Export` |
+| Scale | Rendering multiplier (0.25× – 32×) | `2` |
+| Format | Output format | `PNG` |
+
+---
+
+## 🛠 Installation
+
+### Option 1 — Local file
+
+1. Download `export.js`
+2. Place it in your project folder
+3. Add this before the closing `</body>` tag:
 
 ```html
 <script src="./export.js"></script>
 ```
 
----
+### Option 2 — CDN / GitHub Pages *(Recommended)*
 
-### Option 2 — CDN (Recommended)
-
-1. Just place this before closing `</body>` tag:
+Just paste this anywhere in your HTML:
 
 ```html
 <script src="https://muhtasim-rahman.github.io/exporter-pro/export.js"></script>
 ```
 
-Now it works on any website instantly.
+That's it. The export UI appears at the bottom of the page.
 
 ---
 
-# ⚙ Configuration Options
-
-| Field | Description | Default |
-|--------|-------------|----------|
-| Target Class | CSS selector of elements to export | `.page` |
-| Base Name | Output filename prefix | `Project` |
-| Scale | Rendering multiplier ( 1x-16x ) | `2` |
-| Format | Image format (png, jpg, webP)| `PNG` |
-
----
-
-# ⚡ Performance Notes
-
-- Large scale values increase memory usage.
-- Recommended scale: 2–4
-- For heavy pages: export in batches.
-- Object URLs are revoked on reset.
-- Requires **internet** connection (for CDN libraries).
-- **You may need to host your project online (eg. GitHub) if it includes any image.**
-
----
-
-# 📦 File Structure
+## 🔄 How It Works
 
 ```
-project-root/
-│
-├── index.html 
-├── export.js
-└── Other Files
+User sets selector, name, scale, format
+         ↓
+DOM query — finds all matching elements
+         ↓
+Each element is cloned off-screen
+(above viewport, overflow:visible)
+         ↓
+html-to-image captures at exact W×H
+(no viewport clipping — full fidelity)
+         ↓
+CMYK conversion applied if needed
+         ↓
+Blob / PDF generated
+         ↓
+Table row added: preview + download button
+         ↓
+ZIP available for all image formats
 ```
 
 ---
 
-# 👨‍💻 Author
+## ⚡ Performance Notes
 
-**Muhtasim Rahman**  
-> Programmer | Web Developer | Graphic Designer | Student
-
-- Portfolio : https://mdturzo.odoo.com
-- GitHub : https://github.com/muhtasim-rahman
-- LinkedIn : https://www.linkedin.com/in/mdturzo999
-- YouTube : https://www.youtube.com/@mdturzo999
-- E-mail : programmer.turzo@gmail.com
+- **Recommended scale:** 2× – 4× for everyday use
+- Scales above 8× significantly increase memory and processing time
+- Scales above 16× may crash the browser tab — use with caution
+- PDF files are downloaded immediately via jsPDF; they are not included in the ZIP
+- SVG output is vector-based and scale-independent
+- Requires an **internet connection** for CDN libraries (html-to-image, JSZip, jsPDF, marked.js)
+- If your project includes cross-origin images, host it on a server (e.g. GitHub Pages) to avoid CORS issues
 
 ---
 
-# ⭐ Support
+## 📂 File Structure
 
-If this project helps you:
+```
+your-project/
+├── index.html
+├── export.js       ← drop this in, nothing else needed
+└── ...
+```
 
-- Star the repository
-- Fork it
-- Contribute improvements
+---
+
+## 👨‍💻 Author
+
+**Muhtasim Rahman (Turzo)**
+> Programmer · Web Developer · Graphic Designer · Student
+
+| | |
+|---|---|
+| 🌐 Portfolio | https://mdturzo.odoo.com |
+| 🐙 GitHub | https://github.com/muhtasim-rahman |
+| 💼 LinkedIn | https://www.linkedin.com/in/mdturzo999 |
+| ▶ YouTube | https://www.youtube.com/@mdturzo999 |
+| ✉ Email | programmer.turzo@gmail.com |
+
+---
+
+## ⭐ Support
+
+If this project helped you:
+
+- ⭐ **Star** the repository
+- 🍴 **Fork** it and build on top
+- 🐛 **Open an issue** if you find a bug
+- 💡 **Submit a PR** if you have an improvement
 
 ---
 
 Made with 💖 by [Muhtasim Rahman](https://mdturzo.odoo.com)
-
